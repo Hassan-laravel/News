@@ -26,12 +26,18 @@
 </style>
     <h2 class="text-center mb-4 fw-bold">{{ $categoryName }}</h2>
 
-    <div class="row justify-content-center mb-5">
+<div class="row align-items-center mb-5">
+        <div class="col-md-6 text-center text-md-start">
+            <h2 class="fw-bold mb-3 mb-md-0">{{ $categoryName }}</h2>
+        </div>
         <div class="col-md-6">
-            <input type="text"
-                   x-model.debounce.200ms="search"
-                   placeholder="{{ app()->getLocale() == 'ar' ? 'ابحث هنا...' : 'Search here...' }}"
-                   class="form-control py-2 shadow-sm">
+            <div class="search-wrapper">
+                <i class="bi bi-search search-icon"></i>
+                <input type="text"
+                       x-model.debounce.200ms="search"
+                       placeholder="{{ app()->getLocale() == 'ar' ? 'ابحث في هذه القسم...' : 'Search in this category...' }}"
+                       class="form-control shadow-sm">
+            </div>
         </div>
     </div>
 

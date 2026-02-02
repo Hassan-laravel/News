@@ -1,23 +1,28 @@
 <header class="sticky-top">
 
-    <!-- الشريط العلوي: صفحات + لغة + Dark Mode -->
-    <div class="bg-light border-bottom py-1">
-        <div class="container d-flex justify-content-between align-items-center small">
+<div class="bg-light border-bottom py-2">
+    <div class="container d-flex flex-wrap justify-content-between align-items-center small">
 
-            <!-- روابط الصفحات -->
-            <div class="d-flex gap-3">
-                @foreach ($pages as $page)
-                    <a class="text-decoration-none text-secondary" href="{{ route('page', $page['slug']) }}">
-                        {{ $page['title'] }}
-                    </a>
-                @endforeach
-                <a class="text-decoration-none text-secondary" href="{{ route('contact') }}">contact</a>
+        <div class="d-flex flex-wrap gap-3 justify-content-center justify-content-md-start mb-2 mb-md-0">
+            @foreach ($pages as $page)
+                <a class="text-decoration-none text-secondary fw-medium" href="{{ route('page', $page['slug']) }}">
+                    {{ $page['title'] }}
+                </a>
+            @endforeach
+            <a class="text-decoration-none text-secondary fw-medium" href="{{ route('contact') }}">contact</a>
+        </div>
+
+        <div class="d-flex align-items-center justify-content-center justify-content-md-end gap-3 flex-grow-1 flex-md-grow-0">
+
+            <div class="d-flex align-items-center gap-2 border-start ps-3 ms-1 d-none d-sm-flex">
+                <a href="https://facebook.com" target="_blank" class="text-secondary"><i class="bi bi-facebook"></i></a>
+                <a href="https://twitter.com" target="_blank" class="text-secondary"><i class="bi bi-twitter-x"></i></a>
+                <a href="https://instagram.com" target="_blank" class="text-secondary"><i class="bi bi-instagram"></i></a>
+                <a href="https://youtube.com" target="_blank" class="text-secondary"><i class="bi bi-youtube"></i></a>
             </div>
 
-            <!-- Language + Dark Mode -->
-            <div class="d-flex align-items-center gap-2">
-
-                <!-- Language Switch -->
+            <div class="d-flex align-items-center gap-2 border-start ps-3">
+           <!-- Language Switch -->
                 <div class="dropdown">
                     <button class="btn btn-sm btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown">
                         🌐 {{ strtoupper(app()->getLocale()) }}
@@ -33,29 +38,22 @@
                         @endforeach
                     </ul>
                 </div>
-
-                <!-- Dark Mode Toggle -->
-                <button class="btn btn-sm btn-outline-dark" onclick="toggleTheme()">🌙</button>
-
+                <button class="btn btn-sm btn-outline-dark py-0 px-2" onclick="toggleTheme()" style="font-size: 0.8rem;">🌙</button>
             </div>
         </div>
     </div>
+</div>
 
-    <!-- شريط التصنيفات -->
     <nav class="navbar navbar-expand-lg bg-white border-bottom">
         <div class="container">
-
-            <!-- الشعار -->
             <a class="navbar-brand fw-bold" href="/">
                  {{ $settings['website_name'] }}
             </a>
 
-            <!-- Toggle للـ mobile -->
             <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#categoryNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <!-- قائمة التصنيفات -->
             <div id="categoryNav" class="collapse navbar-collapse">
                 <ul class="navbar-nav mx-auto gap-lg-3 text-center">
                     @if (empty($categories))
@@ -75,14 +73,16 @@
                     @endif
                 </ul>
             </div>
-            <div><a class="navbar-brand" href="{{ url(app()->getLocale()) }}">
+
+            <div>
+                <a class="navbar-brand" href="{{ url(app()->getLocale()) }}">
                     @if ($settings['logo'])
                         <img src="{{ $settings['logo'] }}" alt="{{ $settings['website_name'] }}" height="40">
                     @else
                         {{ $settings['website_name'] }}
                     @endif
-                </a></div>
+                </a>
+            </div>
         </div>
     </nav>
-
 </header>
