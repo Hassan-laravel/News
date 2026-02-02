@@ -10,9 +10,10 @@ class PostController extends Controller
 {
      public function show(Request $request, $slug)
     {
+        $baseUrl = config('services.backend_url') ?? 'https://dashbord-main-oubfum.laravel.cloud';
         $locale = app()->getLocale(); // من Session
 
-        $response = Http::get("https://dashbord-main-oubfum.laravel.cloud/api/posts/{$slug}", [
+        $response =  Http::get("{$baseUrl}/api/posts/{$slug}", [
             'locale' => $locale,
         ]);
 

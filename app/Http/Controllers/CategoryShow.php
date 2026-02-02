@@ -13,16 +13,17 @@ class CategoryShow extends Controller
 public function index(Request $request, $slug)
 {
     $locale = app()->getLocale();
-
+// بدلاً من كتابة الرابط يدوياً، استخدم config أو env
+$baseUrl = config('services.backend_url') ?? 'https://dashbord-main-oubfum.laravel.cloud';
     // 1. جلب التصنيفات للهيدر
-    $responseCat = Http::get("https://dashbord-main-oubfum.laravel.cloud/api/categories/", [
+    $responseCat = Http::get("{$baseUrl}/api/categories/", [
         'locale' => $locale
     ]);
     $categories = $responseCat->successful() ? $responseCat->json()['data'] : [];
 
     // 2. جلب المقالات المفلترة
     // ملاحظة: نرسل 'category_slug' وهو الاسم المتوقع في الـ API للبحث في علاقة الـ Many-to-Many
-    $postsResponse = Http::get("https://dashbord-main-oubfum.laravel.cloud/api/posts", [
+    $postsResponse = Http::get("{$baseUrl}/api/posts", [
         'locale' => $locale,
         'category_id' => $slug
     ]);

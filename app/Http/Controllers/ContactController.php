@@ -7,11 +7,13 @@ use Illuminate\Support\Facades\Http;
 
 class ContactController extends Controller
 {
+
     public function index() {
         return view('pages.contact');
     }
 
     public function store(Request $request) {
+        $baseUrl = config('services.backend_url') ?? 'https://dashbord-main-oubfum.laravel.cloud';
         // 1. التحقق من البيانات المدخلة
         $validated = $request->validate([
             'name' => 'required|string|max:255',
@@ -21,7 +23,7 @@ class ContactController extends Controller
         ]);
 
         // 2. إرسال البيانات للـ API
-        $response = Http::post("https://dashbord-main-oubfum.laravel.cloud/api/contact/send", $validated);
+        $response = Http::post("{$baseUrl}/api/contact/send", $validated);
 
         if ($response->successful()) {
             return back()->with('success', __('تم إرسال رسالتك بنجاح!'));

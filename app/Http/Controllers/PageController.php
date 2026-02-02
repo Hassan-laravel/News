@@ -10,9 +10,10 @@ class PageController extends Controller
 
  public function show(Request $request, $slug)
     {
+        $baseUrl = config('services.backend_url') ?? 'https://dashbord-main-oubfum.laravel.cloud';
         $locale = app()->getLocale(); // من Session
 
-        $response = Http::get("https://dashbord-main-oubfum.laravel.cloud/api/pages/{$slug}", [
+        $response = Http::get("{$baseUrl}/api/pages/{$slug}", [
             'locale' => $locale,
         ]);
 

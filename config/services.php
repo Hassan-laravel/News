@@ -21,12 +21,13 @@ return [
     'resend' => [
         'key' => env('RESEND_API_KEY'),
     ],
-
+    'backend_url' => env('VITE_API_URL'),
     'ses' => [
         'key' => env('AWS_ACCESS_KEY_ID'),
         'secret' => env('AWS_SECRET_ACCESS_KEY'),
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
+
 
     'slack' => [
         'notifications' => [

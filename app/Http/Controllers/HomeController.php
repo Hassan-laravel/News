@@ -11,10 +11,11 @@ class HomeController extends Controller
 protected $categoryService;
 
     public function index()
-    {           // تحديد اللغة الحالية للموقع (ar أو en)
+    {
+        $baseUrl = config('services.backend_url') ?? 'https://dashbord-main-oubfum.laravel.cloud';   // تحديد اللغة الحالية للموقع (ar أو en)
         $locale = App::getLocale();
         // إرسال طلب للـ API مع تمرير اللغة
-        $response = Http::get("https://dashbord-main-oubfum.laravel.cloud/api/categories/", [
+        $response = Http::get("{$baseUrl}/api/categories/", [
             'locale' => $locale
         ]);
          $categories = $response->successful() ? $response->json()['data'] : [];
