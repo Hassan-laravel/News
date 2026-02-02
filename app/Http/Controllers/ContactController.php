@@ -1,0 +1,32 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
+
+class ContactController extends Controller
+{
+    public function index() {
+        return view('pages.contact');
+    }
+
+    public function store(Request $request) {
+        // 1. التحقق من البيانات المدخلة
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email',
+            'subject' => 'required|string|max:255',
+            'message' => 'required|string',
+        ]);
+
+        // 2. إرسال البيانات للـ API
+        $response = Http::post("https://dashbord-main-oubfum.laravel.cloud/api/contact/send", $validated);
+
+        if ($response->successful()) {
+            return back()->with('success', __('تم إرسال رسالتك بنجاح!'));
+        }
+
+        return back()->withErrors(['api_error' => __('عذراً، حدث خطأ أثناء إرسال الرسالة.')])->withInput();
+    }
+}

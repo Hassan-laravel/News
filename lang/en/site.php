@@ -1,0 +1,30 @@
+<?php
+return [
+  'site_name' => 'Daily News',
+  'site_description' => 'An independent news website delivering the latest local and global news',
+  'quick_links' => 'Quick Links',
+  'about_us' => 'About Us',
+  'contact_us' => 'Contact Us',
+  'privacy_policy' => 'Privacy Policy',
+  'contact_info' => 'Contact Information',
+  'address' => 'City - Country',
+  'phone' => '+000000000',
+  'whatsapp' => 'WhatsApp: +000000000',
+  'all_rights_reserved' => 'All rights reserved',
+  'our_mission' => 'Our Mission',
+'about_text' => 'We are an independent news website delivering the latest local and global news reliably.',
+'our_team' => 'Our Team',
+'editor' => 'Editor-in-Chief',
+'reporter' => 'Reporter',
+'photographer' => 'Photographer',
+'name' => 'Name',
+'enter_name' => 'Enter your name',
+'email' => 'Email',
+'enter_email' => 'Enter your email',
+'message' => 'Message',
+'enter_message' => 'Type your message here',
+'send' => 'Send',
+'no_categories' => 'No categories',
+
+
+];
