@@ -15,11 +15,17 @@ protected $categoryService;
         $baseUrl = config('services.backend_url') ?? 'https://dashbord-main-oubfum.laravel.cloud';   // تحديد اللغة الحالية للموقع (ar أو en)
         $locale = App::getLocale();
         // إرسال طلب للـ API مع تمرير اللغة
-        $response = Http::get("{$baseUrl}/api/categories/", [
+        $responseCategory = Http::get("{$baseUrl}/api/categories/", [
             'locale' => $locale
         ]);
-         $categories = $response->successful() ? $response->json()['data'] : [];
-        return view('home', compact('categories'));
+         $categories = $responseCategory->successful() ? $responseCategory->json()['data'] : [];
+
+           $responsepost = Http::get("{$baseUrl}/api/posts/", [
+            'locale' => $locale
+        ]);
+        $posts=$responsepost->successful() ? $responsepost->json()['data'] : [];
+
+        return view('home', compact('categories','posts'));
     }
 
 
