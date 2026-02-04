@@ -9,7 +9,7 @@
                     {{ $page['title'] }}
                 </a>
             @endforeach
-            <a class="text-decoration-none text-secondary fw-medium" href="{{ route('contact') }}">contact</a>
+            <a class="text-decoration-none text-secondary fw-medium" href="{{ route('contact') }}">{{ __('site.contact_us') }}</a>
         </div>
 
         <div class="d-flex align-items-center justify-content-center justify-content-md-end gap-3 flex-grow-1 flex-md-grow-0">

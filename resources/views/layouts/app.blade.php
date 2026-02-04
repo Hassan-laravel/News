@@ -28,7 +28,7 @@
         footer { background-color: #f8f9fa; padding: 20px 0; margin-top: auto; }
         :root {
         /* تحكم هنا في حجم الخط الأساسي للموقع بالكامل */
-        --base-font-size: 1.5rem;
+        --base-font-size: 1.3rem;
     }
 
     body {
