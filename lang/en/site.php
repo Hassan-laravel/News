@@ -28,6 +28,8 @@ return [
 'newsletter_desc' => 'Be the first to know the most important news and exclusive analysis.',
 'email_placeholder' => 'Enter your email',
 'subscribe_btn' => 'Subscribe',
+'subject'=>'subject',
+'contact_success'=>'Message sent successfully',
 
 
 ];

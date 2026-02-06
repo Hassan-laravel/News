@@ -29,6 +29,9 @@ return [
 'newsletter_desc' => 'كن أول من يعرف أهم الأخبار والتحليلات الحصرية.',
 'email_placeholder' => 'أدخل بريدك الإلكتروني',
 'subscribe_btn' => 'اشتراك',
+'subject'=>'الموضوع',
+'contact_success'=>'تم ارسال الرسالة بنجاح',
+
 
 
 

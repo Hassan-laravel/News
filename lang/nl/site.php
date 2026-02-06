@@ -28,4 +28,6 @@ return [
     'newsletter_desc' => 'Wees als eerste op de hoogte van het belangrijkste nieuws en exclusieve analyses.',
     'email_placeholder' => 'Je e-mailadres',
     'subscribe_btn' => 'Abonneren',
+    'subject'=>'onderwerp',
+    'contact_success'=>'Bericht succesvol verzonden',
 ];
