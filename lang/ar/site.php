@@ -4,7 +4,7 @@ return [
   'site_description' => 'موقع إخباري مستقل يقدم آخر الأخبار المحلية والعالمية',
   'quick_links' => 'روابط سريعة',
   'about_us' => 'من نحن',
-  'contact_us' => 'اتصل بنا',
+  'contact_us' => 'تواصل معنا',
   'privacy_policy' => 'سياسة الخصوصية',
   'contact_info' => 'معلومات التواصل',
   'address' => 'المدينة - الدولة',
@@ -25,6 +25,11 @@ return [
 'enter_message' => 'اكتب رسالتك هنا',
 'send' => 'إرسال',
 'no_categories' => 'لا توجد تصنيفات',
+'newsletter_title' => 'اشترك في النشرة البريدية',
+'newsletter_desc' => 'كن أول من يعرف أهم الأخبار والتحليلات الحصرية.',
+'email_placeholder' => 'أدخل بريدك الإلكتروني',
+'subscribe_btn' => 'اشتراك',
+
 
 
 ];

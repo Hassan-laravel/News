@@ -14,25 +14,13 @@ Route::get('switch-language/{lang}', function ($lang) {
     }
     return redirect()->back();
 })->name('switch.language');
-// Route::get('/lang/{locale}', function ($locale) {
-//     if (array_key_exists($locale, config('language.available'))) {
-//         session(['locale' => $locale]);
-//     }
-//     return back();
-// })->name('switch.language');
 
-// تجربة بسيطة
-// Route::get('/', function () {
-//     return view('home');
-// });
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/article', function () {
     return view('article');
 });
 
-// Route::get('/contact', function () {
-//     return view('contact');
-// });
+
 Route::get('/about', function () {
     return view('about');
 });

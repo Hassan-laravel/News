@@ -3,7 +3,7 @@
 @section('content')
     <div class="container py-5" x-data="{
     search: '',
-    // هذه الدالة ستتحكم في ظهور المقال أو اختفائه
+    // This function controls the visibility of posts based on the search input
     postMatches(title, content) {
         if (!this.search) return true;
         let s = this.search.toLowerCase();
@@ -11,22 +11,21 @@
     }
 }">
 <style>
-    /* منع الوميض المفاجئ */
+    /* Prevent Alpine.js "flash" before initialization */
     [x-cloak] { display: none !important; }
 
-    /* فرض تمكين الحركات حتى لو كان هناك إعدادات تعطلها في الثيم */
+    /* Force enable transitions even if the theme settings disable them */
     .col-12[x-show] {
         transition: all 0.5s ease-in-out;
     }
 
-    /* تنسيق إضافي لضمان نعومة حركة الـ Grid */
+    /* Additional styling to ensure smooth grid movement */
     .row.g-4 {
         transition: all 0.5s ease;
     }
 </style>
-    <h2 class="text-center mb-4 fw-bold">{{ $categoryName }}</h2>
 
-<div class="row align-items-center mb-5">
+    <div class="row align-items-center mb-5">
         <div class="col-md-6 text-center text-md-start">
             <h2 class="fw-bold mb-3 mb-md-0">{{ $categoryName }}</h2>
         </div>
@@ -35,7 +34,7 @@
                 <i class="bi bi-search search-icon"></i>
                 <input type="text"
                        x-model.debounce.200ms="search"
-                       placeholder="{{ app()->getLocale() == 'ar' ? 'ابحث في هذه القسم...' : 'Search in this category...' }}"
+                       placeholder="{{ __('messages.search_placeholder') }}"
                        class="form-control shadow-sm">
             </div>
         </div>
@@ -43,7 +42,7 @@
 
    <div class="row g-4">
     @foreach($posts as $post)
-        {{-- لاحظ إضافة x-cloak و style --}}
+        {{-- Added x-cloak and inline style for Alpine.js transitions --}}
         <div class="col-12 col-md-6 col-lg-3 mb-4"
              x-show="postMatches('{{ addslashes($post['title']) }}', '{{ addslashes(strip_tags($post['content'] ?? '')) }}')"
              x-transition.duration.500ms
@@ -60,7 +59,7 @@
                         {{ Str::limit(strip_tags($post['excerpt'] ?? $post['content']), 80) }}
                     </p>
                     <a href="{{ url('/post/' . $post['slug']) }}" class="btn btn-primary-custom mt-auto">
-                        {{ app()->getLocale() == 'ar' ? 'المزيد' : 'More' }}
+                        {{ __('messages.read_more') }}
                     </a>
                 </div>
             </div>

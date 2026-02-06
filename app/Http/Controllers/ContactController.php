@@ -14,7 +14,8 @@ class ContactController extends Controller
 
     public function store(Request $request) {
         $baseUrl = config('services.backend_url') ?? 'https://dashbord-main-oubfum.laravel.cloud';
-        // 1. التحقق من البيانات المدخلة
+
+        // 1. Validate the input data
         $validated = $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email',
@@ -22,13 +23,15 @@ class ContactController extends Controller
             'message' => 'required|string',
         ]);
 
-        // 2. إرسال البيانات للـ API
+        // 2. Send data to the API
         $response = Http::post("{$baseUrl}/api/contact/send", $validated);
 
         if ($response->successful()) {
-            return back()->with('success', __('تم إرسال رسالتك بنجاح!'));
+            return back()->with('success', __('site.contact_success'));
         }
 
-        return back()->withErrors(['api_error' => __('عذراً، حدث خطأ أثناء إرسال الرسالة.')])->withInput();
+        return back()->withErrors([
+            'api_error' => __('site.contact_error')
+        ])->withInput();
     }
 }

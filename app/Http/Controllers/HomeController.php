@@ -14,7 +14,7 @@ protected $categoryService;
     {
         $baseUrl = config('services.backend_url') ?? 'https://dashbord-main-oubfum.laravel.cloud';   // تحديد اللغة الحالية للموقع (ar أو en)
         $locale = App::getLocale();
-        // إرسال طلب للـ API مع تمرير اللغة
+
         $responseCategory = Http::get("{$baseUrl}/api/categories/", [
             'locale' => $locale
         ]);

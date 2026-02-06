@@ -24,7 +24,10 @@ return [
 'message' => 'Message',
 'enter_message' => 'Type your message here',
 'send' => 'Send',
-'no_categories' => 'No categories',
+'newsletter_title' => 'Subscribe to Newsletter',
+'newsletter_desc' => 'Be the first to know the most important news and exclusive analysis.',
+'email_placeholder' => 'Enter your email',
+'subscribe_btn' => 'Subscribe',
 
 
 ];

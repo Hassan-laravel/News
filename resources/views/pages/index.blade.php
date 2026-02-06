@@ -6,7 +6,8 @@
         <h1 class="display-4 fw-bold">{{ $page['title'] }}</h1>
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb justify-content-center">
-                <li class="breadcrumb-item"><a href="/">{{ app()->getLocale() == 'ar' ? 'الرئيسية' : 'Home' }}</a></li>
+                {{-- Breadcrumb Navigation --}}
+                <li class="breadcrumb-item"><a href="/">{{ __('site.home') }}</a></li>
                 <li class="breadcrumb-item active">{{ $page['title'] }}</li>
             </ol>
         </nav>
@@ -16,19 +17,22 @@
 <div class="container mb-5">
     <div class="row justify-content-center">
         <div class="col-lg-10">
+            {{-- Featured Image Section --}}
             @if($page['image'])
                 <div class="main-page-image mb-5">
                     <img src="{{ $page['image'] }}" class="img-fluid rounded-4 shadow-lg w-100" alt="{{ $page['title'] }}">
                 </div>
             @endif
 
+            {{-- Main Page Content --}}
             <div class="page-content fs-5 mb-5">
                 {!! $page['content'] !!}
             </div>
 
+            {{-- Photo Gallery Section --}}
             @if(!empty($page['gallery']))
                 <hr class="my-5">
-                <h3 class="mb-4 text-center fw-bold">{{ app()->getLocale() == 'ar' ? 'معرض الصور' : 'Photo Gallery' }}</h3>
+                <h3 class="mb-4 text-center fw-bold">{{ __('site.photo_gallery') }}</h3>
                 <div class="photo-gallery">
                     @foreach($page['gallery'] as $img)
                         <div class="gallery-item">
@@ -45,16 +49,17 @@
 </div>
 
 <style>
-    /* تنسيق المحتوى */
+    /* Content Formatting */
     .page-content { line-height: 1.9; color: #444; text-align: justify; }
 
-    /* تنسيق معرض الصور المنسق */
+    /* CSS Grid Photo Gallery Layout */
     .photo-gallery {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
         gap: 15px;
     }
 
+    /* Gallery Item Styling */
     .gallery-item {
         position: relative;
         overflow: hidden;
@@ -83,9 +88,12 @@
     .main-page-image img { max-height: 450px; object-fit: cover; }
 </style>
 
+
+
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
 <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
 <script>
+    // Initialize Fancybox for the gallery
     Fancybox.bind("[data-fancybox='gallery']", {});
 </script>
 @endsection
