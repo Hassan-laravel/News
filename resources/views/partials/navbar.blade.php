@@ -49,16 +49,7 @@
     </div>
 
     <nav class="navbar navbar-expand-lg bg-white border-bottom p-2">
-        <div class="d-flex align-items-center gap-3">
-            <a href="https://facebook.com" target="_blank" class="text-secondary hover-primary"><i
-                    class="bi bi-facebook"></i></a>
-            <a href="https://twitter.com" target="_blank" class="text-secondary hover-primary"><i
-                    class="bi bi-twitter-x"></i></a>
-            <a href="https://instagram.com" target="_blank" class="text-secondary hover-primary"><i
-                    class="bi bi-instagram"></i></a>
-            <a href="https://youtube.com" target="_blank" class="text-secondary hover-primary"><i
-                    class="bi bi-youtube"></i></a>
-        </div>
+
         <div class="container d-flex justify-content-between align-items-center">
 
             <div class="d-flex align-items-center gap-2">

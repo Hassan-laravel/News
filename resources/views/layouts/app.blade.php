@@ -17,7 +17,8 @@
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     @endif
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <style>
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <style>
         :root {
             --base-font-size: 1.1rem; /* قللت الحجم قليلاً ليتناسب مع الخطوط الأجنبية */
         }
