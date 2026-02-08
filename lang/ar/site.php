@@ -31,6 +31,7 @@ return [
 'subscribe_btn' => 'اشتراك',
 'subject'=>'الموضوع',
 'contact_success'=>'تم ارسال الرسالة بنجاح',
+'latest_news'=>'الرئيسية'
 
 
 

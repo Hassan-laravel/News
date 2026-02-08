@@ -30,6 +30,7 @@ return [
 'subscribe_btn' => 'Subscribe',
 'subject'=>'subject',
 'contact_success'=>'Message sent successfully',
+'latest_news'=>'Home'
 
 
 ];

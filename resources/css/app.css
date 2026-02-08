@@ -1,29 +1,222 @@
+/* 1. استدعاء الخطوط من جوجل مع خاصية swap للأداء */
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&family=Inter:wght@400;700&family=Cairo:wght@400;700&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap');
-:root {
-    --main-font: 'Cairo', sans-serif;
-}
-
-body {
-    font-family: var(--main-font) !important;
-    direction: rtl;
-    text-align: right;
-}
-
-/* لجعل العناوين شبيهة بموقع العربية */
-h1, h2, h3, h4, h5, h6, .nav-link {
-    font-family: var(--main-font) !important;
-    font-weight: 700;
-}
+/* 2. استدعاء أساسيات Tailwind */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* 3. المتغيرات الذكية (CSS Variables) */
+:root {
+    --base-font-size: 1.1rem;
+    --main-line-height: 1.6;
+    --transition-speed: 0.5s;
+    --primary-color: #0d6efd; /* يمكنك تغيير هذا للون موقعك الأساسي */
+}
+
+/* تبديل الخطوط تلقائياً بناءً على لغة الصفحة */
+html[lang="en"] {
+    --main-font: 'Inter', sans-serif;
+}
+
+html[lang="ar"] {
+    --main-font: 'Tajawal', sans-serif;
+}
+
+/* 4. التنسيقات الأساسية للجسم (Base Styles) */
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: var(--main-font) !important;
+    font-size: var(--base-font-size) !important;
+    line-height: var(--main-line-height);
+
+    overflow-x: hidden; /* لمنع ظهور شريط تمرير عرضي في الموبايل */
+    background-color: var(--bs-body-bg) !important;
+    color: var(--bs-body-color) !important;
+    transition: background-color 0.3s ease, color 0.3s ease; /* لإضافة نعومة عند التبديل */
+}
+/* ربط الخلفية العامة للموقع بالثيم */
+
+
+/* الألوان المتكيفة للنصوص والعناوين */
+[data-bs-theme="dark"] body {
+    color: #f8f9fa !important; /* لون نص فاتح للوضع الداكن */
+}
+
+[data-bs-theme="dark"] h1,
+[data-bs-theme="dark"] h2,
+[data-bs-theme="dark"] h3,
+[data-bs-theme="dark"] h4,
+[data-bs-theme="dark"] .nav-link,
+[data-bs-theme="dark"] .card-title {
+    color: #ffffff !important; /* ضمان بقاء العناوين بيضاء وواضحة */
+}
+
+/* تنسيق الفوتر للوضع الداكن */
+[data-bs-theme="dark"] footer {
+background-color: #2b3035 !important; /* لون رمادي داكن جداً */
+    box-shadow: 0 .125rem .25rem rgba(0,0,0,.3) !important;
+}
+
+[data-bs-theme="dark"] .text-secondary {
+    color: #adb5bd !important; /* تحويل الرمادي الداكن إلى رمادي فاتح */
+}
+
+/* إذا كنت تستخدم كروت للمقالات */
+[data-bs-theme="dark"] .card {
+    background-color: #212529;
+    border-color: #373b3e;
+}
+.transition-all {
+    transition: all 0.3s ease-in-out;
+}
+
+.news-card:hover {
+    transform: translateY(-5px);
+}
+/* تأثيرات السلايدر */
+.carousel-item img {
+    filter: brightness(0.9); /* تقليل السطوع قليلاً لبروز النص */
+    transition: filter 0.3s ease;
+}
+
+[data-bs-theme="dark"] .carousel-item img {
+    filter: brightness(0.7); /* تغميق الصور أكثر في الوضع الليلي */
+}
+
+/* حركة الكروت الجانبية */
+.card.transition-all:hover {
+    background-color: var(--bs-tertiary-bg) !important;
+    transform: scale(1.02);
+}
+
+/* تأثيرات الروابط في الفوتر */
+.hover-link:hover {
+    color: var(--bs-primary) !important;
+    padding-inline-start: 5px !important;
+    transition: all 0.3s ease;
+}
+
+.social-btn {
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.social-btn:hover {
+    transform: translateY(-3px);
+    background-color: var(--bs-primary);
+    color: white !important;
+}
+
+/* تنسيق الـ input في الوضع الداكن */
+[data-bs-theme="dark"] .form-control::placeholder {
+    color: #6c757d;
+}
+
+[data-bs-theme="dark"] .form-control:focus {
+    background-color: #2b3035;
+    color: white;
+    border-color: var(--bs-primary);
+}
+
+
+
+main {
+    flex: 1;
+}
+
+/* 5. العناوين والروابط (Typography & SEO) */
+h1, h2, h3, h4, h5, h6, .nav-link, .navbar-brand {
+    font-family: var(--main-font) !important;
+    font-weight: 700 !important;
+}
+
+/* تدرج أحجام العناوين بشكل مرن */
+h1 { font-size: calc(var(--base-font-size) * 2.2) !important; }
+h2 { font-size: calc(var(--base-font-size) * 1.8) !important; }
+h3 { font-size: calc(var(--base-font-size) * 1.5) !important; }
+
+a {
+    transition: color 0.3s ease;
+}
+
+/* 6. تنسيقات الهيدر والـ Top Bar */
+.top-bar {
+    font-size: 0.85rem;
+}
+
+/* أيقونات التواصل الاجتماعي */
+.top-bar a i {
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.top-bar a:hover i {
+    color: var(--primary-color) !important;
+    transform: translateY(-2px);
+}
+
+/* تنسيق عنوان الموقع News بجانب اللوجو في اللابتوب */
+.navbar-brand + span {
+    border-color: #dee2e6 !important;
+    padding-inline-end: 1rem;
+    margin-inline-start: 0.5rem;
+}
+
+/* 7. القائمة الجانبية (Offcanvas & Accordion) */
+/* تخصيص زر الأكورديون ليكون نظيفاً */
+.accordion-button:not(.collapsed) {
+    background-color: transparent !important;
+    color: var(--primary-color) !important;
+    box-shadow: none !important;
+}
+
+.accordion-button::after {
+    /* يجعل السهم يتوافق مع RTL/LTR تلقائياً */
+    margin-inline-start: auto;
+    margin-inline-end: 0;
+}
+
+.list-group-item-action:hover {
+    background-color: #f8f9fa;
+    color: var(--primary-color);
+    padding-inline-start: 2rem;
+    transition: all 0.3s ease;
+}
+
+/* 8. حركات الصور (Hero Cards) */
+.hero-main-card {
+    overflow: hidden;
+    border-radius: 1rem;
+    position: relative;
+}
+
 .hero-main-card img {
-    transition: transform 0.5s ease;
-}
-.hero-main-card:hover img {
-    transform: scale(1.05); /* حركة تكبير بسيطة عند تمرير الماوس */
-}
-.object-fit-cover {
+    transition: transform var(--transition-speed) ease;
     object-fit: cover;
 }
+
+.hero-main-card:hover img {
+    transform: scale(1.05);
+}
+
+/* 9. تحسينات الموبايل (Responsive Fixes) */
+@media (max-width: 991px) {
+    :root {
+        --base-font-size: 1rem; /* تصغير الخط قليلاً في الموبايل */
+    }
+
+    .navbar-brand img {
+        height: 35px;
+    }
+}
+
+/* 10. الفوتر (Footer) */
+footer {
+    background-color: #f8f9fa;
+    padding: 2.5rem 0;
+    margin-top: auto;
+    border-top: 1px solid #dee2e6;
+}
+
+

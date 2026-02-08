@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title', $post['title'] )
 @section('content')
     <article class=" ">
         <div class="container">

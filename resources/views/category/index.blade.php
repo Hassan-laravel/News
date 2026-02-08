@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title', $categoryName )
 
 @section('content')
     <div class="container py-5" x-data="{

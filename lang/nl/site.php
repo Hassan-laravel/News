@@ -30,4 +30,5 @@ return [
     'subscribe_btn' => 'Abonneren',
     'subject'=>'onderwerp',
     'contact_success'=>'Bericht succesvol verzonden',
+    'latest_news'=>'Home'
 ];
