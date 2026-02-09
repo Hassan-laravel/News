@@ -34,9 +34,10 @@ class CategoryShow extends Controller
 
         // Find the current category name to display as the page title
         $currentCategory = collect($categories)->firstWhere('id', $slug);
+
         $categoryName = $currentCategory ? $currentCategory['name'] : $slug;
-
-        return view('category.index', compact('categories', 'posts', 'categoryName'));
+        $categorytitel = $currentCategory ? $currentCategory['meta']['description'] ?? $slug : $slug;
+       $categorydescription = $currentCategory ? $currentCategory['meta']['title'] ?? $slug : $slug;
+        return view('category.index', compact('categories', 'posts', 'categoryName', 'categorydescription', 'categorytitel'));
     }
-
 }

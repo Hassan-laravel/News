@@ -1,5 +1,8 @@
 @extends('layouts.app')
 @section('title', $categoryName )
+@section('meta_description', $categorydescription)
+@section('meta_keywords', $categorytitel)
+    {{-- Open Graph (og) Meta Tags --}}
 
 @section('content')
     <div class="container py-5" x-data="{
