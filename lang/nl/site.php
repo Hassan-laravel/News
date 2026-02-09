@@ -30,5 +30,9 @@ return [
     'subscribe_btn' => 'Abonneren',
     'subject'=>'onderwerp',
     'contact_success'=>'Bericht succesvol verzonden',
-    'latest_news'=>'Home'
+    'latest_news'=>'Home',
+    'menu' => 'Menu',
+    'pages' => 'Pagina\'s',
+    'categories' => 'Categorieën',
+    'contact_us' => 'Contacteer Ons',
 ];

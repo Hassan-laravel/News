@@ -85,60 +85,64 @@
             </div>
         </div>
     </nav>
+{{-- القائمة الجانبية (Offcanvas) للموبايل --}}
+<div class="offcanvas {{ app()->getLocale() == 'ar' ? 'offcanvas-end' : 'offcanvas-start' }} d-lg-none" tabindex="-1" id="mobileMenu" style="width: 280px;">
+    <div class="offcanvas-header border-bottom bg-body-tertiary">
+        {{-- ترجمة كلمة القائمة --}}
+        <h5 class="offcanvas-title fw-bold text-body">{{ __('site.menu') }}</h5>
+        <button type="button" class="btn-close text-reset shadow-none" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body p-0 bg-body">
+        <div class="accordion accordion-flush" id="menuAccordion">
 
-    {{-- القائمة الجانبية (Offcanvas) للموبايل --}}
-    <div class="offcanvas {{ app()->getLocale() == 'ar' ? 'offcanvas-end' : 'offcanvas-start' }} d-lg-none" tabindex="-1" id="mobileMenu" style="width: 280px;">
-        <div class="offcanvas-header border-bottom bg-body-tertiary">
-            <h5 class="offcanvas-title fw-bold text-body">القائمة</h5>
-            <button type="button" class="btn-close text-reset shadow-none" data-bs-dismiss="offcanvas"></button>
-        </div>
-        <div class="offcanvas-body p-0 bg-body">
-            <div class="accordion accordion-flush" id="menuAccordion">
-
-                {{-- قسم الصفحات --}}
-                <div class="accordion-item border-0 bg-transparent">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button fw-bold bg-transparent text-body shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePages">
-                            <i class="bi bi-file-earmark-text-fill me-2 text-body-secondary px-2"></i> الصفحات
-                        </button>
-                    </h2>
-                    <div id="collapsePages" class="accordion-collapse collapse show" data-bs-parent="#menuAccordion">
-                        <div class="accordion-body p-0">
-                            <div class="list-group list-group-flush">
-                                @foreach ($pages as $page)
-                                    <a href="{{ route('page', $page['slug']) }}" class="list-group-item list-group-item-action bg-transparent text-body border-0 ps-5 py-2 small">
-                                        {{ $page['title'] }}
-                                    </a>
-                                @endforeach
-                                <a href="{{ route('contact') }}" class="list-group-item list-group-item-action bg-transparent text-body border-0 ps-5 py-2 small">
-                                    {{ __('site.contact_us') }}
+            {{-- قسم الصفحات --}}
+            <div class="accordion-item border-0 bg-transparent">
+                <h2 class="accordion-header">
+                    <button class="accordion-button fw-bold bg-transparent text-body shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePages">
+                        <i class="bi bi-file-earmark-text-fill me-2 text-body-secondary px-2"></i>
+                        {{-- ترجمة كلمة الصفحات --}}
+                        {{ __('site.pages') }}
+                    </button>
+                </h2>
+                <div id="collapsePages" class="accordion-collapse collapse show" data-bs-parent="#menuAccordion">
+                    <div class="accordion-body p-0">
+                        <div class="list-group list-group-flush">
+                            @foreach ($pages as $page)
+                                <a href="{{ route('page', $page['slug']) }}" class="list-group-item list-group-item-action bg-transparent text-body border-0 ps-5 py-2 small">
+                                    {{ $page['title'] }}
                                 </a>
-                            </div>
+                            @endforeach
+                            <a href="{{ route('contact') }}" class="list-group-item list-group-item-action bg-transparent text-body border-0 ps-5 py-2 small">
+                                {{ __('site.contact_us') }}
+                            </a>
                         </div>
                     </div>
                 </div>
-
-                {{-- قسم التصنيفات --}}
-                <div class="accordion-item border-0 bg-transparent">
-                    <h2 class="accordion-header border-top">
-                        <button class="accordion-button collapsed fw-bold bg-transparent text-body shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCats">
-                            <i class="bi bi-grid-fill me-2 text-body-secondary px-2"></i> التصنيفات
-                        </button>
-                    </h2>
-                    <div id="collapseCats" class="accordion-collapse collapse" data-bs-parent="#menuAccordion">
-                        <div class="accordion-body p-0">
-                            <div class="list-group list-group-flush">
-                                @foreach ($categories as $category)
-                                    <a href="/category/{{ $category['id'] }}" class="list-group-item list-group-item-action bg-transparent text-body border-0 ps-5 py-2 small">
-                                        {{ $category['name'] }}
-                                    </a>
-                                @endforeach
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
             </div>
+
+            {{-- قسم التصنيفات --}}
+            <div class="accordion-item border-0 bg-transparent">
+                <h2 class="accordion-header border-top">
+                    <button class="accordion-button collapsed fw-bold bg-transparent text-body shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCats">
+                        <i class="bi bi-grid-fill me-2 text-body-secondary px-2"></i>
+                        {{-- ترجمة كلمة التصنيفات --}}
+                        {{ __('site.categories') }}
+                    </button>
+                </h2>
+                <div id="collapseCats" class="accordion-collapse collapse" data-bs-parent="#menuAccordion">
+                    <div class="accordion-body p-0">
+                        <div class="list-group list-group-flush">
+                            @foreach ($categories as $category)
+                                <a href="/category/{{ $category['id'] }}" class="list-group-item list-group-item-action bg-transparent text-body border-0 ps-5 py-2 small">
+                                    {{ $category['name'] }}
+                                </a>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
+</div>
 </header>

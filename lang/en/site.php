@@ -30,7 +30,11 @@ return [
 'subscribe_btn' => 'Subscribe',
 'subject'=>'subject',
 'contact_success'=>'Message sent successfully',
-'latest_news'=>'Home'
+'latest_news'=>'Home',
+'menu' => 'Menu',
+'pages' => 'Pages',
+'categories' => 'Categories',
+'contact_us' => 'Contact Us',
 
 
 ];

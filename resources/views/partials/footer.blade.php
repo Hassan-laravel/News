@@ -1,4 +1,3 @@
-{{-- استخدام bg-body-tertiary يضمن خلفية رمادية فاتحة في النهار ورمادية داكنة جداً في الليل --}}
 <footer class="mt-5 border-top border-secondary-subtle bg-body-tertiary pt-5 pb-4">
     <div class="container">
         <div class="row gy-5">
@@ -6,33 +5,36 @@
             {{-- 1. شعار الموقع والوصف --}}
             <div class="col-lg-4 col-md-6">
                 <div class="footer-logo mb-3">
-                    {{-- استخدام text-primary يحافظ على هوية الموقع في الوضعين --}}
                     <h4 class="fw-bold text-primary">{{ $settings['website_name'] ?? __('site.default_site_name') }}</h4>
                 </div>
-                {{-- استخدام text-body-secondary بدلاً من text-secondary لضمان تباين مريح في الوضع الداكن --}}
-                <p class="text-body-secondary small lh-lg mb-4">
+                {{-- تم تغيير text-body-secondary إلى text-body لتوحيد اللون --}}
+                <p class="text-body small lh-lg mb-4">
                     {{ $settings['description'] ?? __('site.footer_description') }}
                 </p>
                 <div class="d-flex gap-2">
-                    {{-- أيقونات التواصل الاجتماعي --}}
-                    <a href="#" class="btn btn-outline-primary btn-sm rounded-circle d-flex align-items-center justify-content-center social-btn"><i class="bi bi-facebook"></i></a>
-                    <a href="#" class="btn btn-outline-primary btn-sm rounded-circle d-flex align-items-center justify-content-center social-btn"><i class="bi bi-twitter-x"></i></a>
-                    <a href="#" class="btn btn-outline-primary btn-sm rounded-circle d-flex align-items-center justify-content-center social-btn"><i class="bi bi-instagram"></i></a>
+                    <a href="#" class="btn btn-outline-primary btn-sm rounded-circle d-flex align-items-center justify-content-center social-btn">
+                        <i class="bi bi-facebook"></i>
+                    </a>
+                    <a href="#" class="btn btn-outline-primary btn-sm rounded-circle d-flex align-items-center justify-content-center social-btn">
+                        <i class="bi bi-twitter-x"></i>
+                    </a>
+                    <a href="#" class="btn btn-outline-primary btn-sm rounded-circle d-flex align-items-center justify-content-center social-btn">
+                        <i class="bi bi-instagram"></i>
+                    </a>
                 </div>
             </div>
 
             {{-- 2. روابط سريعة --}}
             <div class="col-lg-2 col-md-6">
-                {{-- text-body يضمن تحول العنوان للون الأبيض في الوضع الداكن --}}
                 <h6 class="fw-bold mb-4 text-body">{{ __('site.quick_links') }}</h6>
                 <ul class="nav flex-column gap-2">
                     @foreach ($pages as $page)
-                    <li class="nav-item">
-                        <a href="{{ route('page', $page['slug']) }}" class="nav-link p-0 text-body-secondary small hover-link">
-                            <i class="bi bi-chevron-double-{{ app()->getLocale() == 'ar' ? 'left' : 'right' }} me-1"></i>
-                            {{ $page['title'] }}
-                        </a>
-                    </li>
+                        <li class="nav-item">
+                            <a href="{{ route('page', $page['slug']) }}" class="nav-link p-0 text-body small hover-link">
+                                <i class="bi bi-chevron-double-{{ app()->getLocale() == 'ar' ? 'left' : 'right' }} me-1"></i>
+                                {{ $page['title'] }}
+                            </a>
+                        </li>
                     @endforeach
                 </ul>
             </div>
@@ -42,17 +44,18 @@
                 <h6 class="fw-bold mb-4 text-body">{{ __('site.contact_info') }}</h6>
                 <div class="d-flex flex-column gap-3">
                     <div class="d-flex align-items-center gap-3">
-                        {{-- bg-primary bg-opacity-10 تعطي خلفية خفيفة ملونة تظهر بوضوح في الوضعين --}}
                         <div class="p-2 bg-primary bg-opacity-10 rounded-3 border border-primary border-opacity-10">
                             <i class="bi bi-envelope-at text-primary"></i>
                         </div>
-                        <span class="small text-body-secondary text-break">{{ $settings['email'] ?? 'info@example.com' }}</span>
+                        {{-- تم التغيير إلى text-body --}}
+                        <span class="small text-body text-break">{{ $settings['email'] ?? 'info@example.com' }}</span>
                     </div>
                     <div class="d-flex align-items-center gap-3">
                         <div class="p-2 bg-primary bg-opacity-10 rounded-3 border border-primary border-opacity-10">
                             <i class="bi bi-telephone text-primary"></i>
                         </div>
-                        <span class="small text-body-secondary" dir="ltr">{{ $settings['phone'] ?? '+966 000 000' }}</span>
+                        {{-- تم التغيير إلى text-body --}}
+                        <span class="small text-body" dir="ltr">{{ $settings['phone'] ?? '+966 000 000' }}</span>
                     </div>
                 </div>
             </div>
@@ -60,9 +63,9 @@
             {{-- 4. الاشتراك في النشرة البريدية --}}
             <div class="col-lg-3 col-md-6">
                 <h6 class="fw-bold mb-4 text-body">{{ __('site.newsletter_title') }}</h6>
-                <p class="small text-body-secondary mb-3">{{ __('site.newsletter_desc') }}</p>
+                {{-- تم التغيير إلى text-body --}}
+                <p class="small text-body mb-3">{{ __('site.newsletter_desc') }}</p>
                 <div class="input-group mb-3">
-                    {{-- bg-body في الـ input تضمن تحول لون الخلفية للأسود عند تفعيل الوضع الداكن --}}
                     <input type="text" class="form-control form-control-sm bg-body border-secondary-subtle text-body shadow-none" placeholder="{{ __('site.email_placeholder') }}">
                     <button class="btn btn-primary btn-sm" type="button">{{ __('site.subscribe_btn') }}</button>
                 </div>
@@ -70,15 +73,16 @@
 
         </div>
 
-        {{-- الخط الفاصل: استخدام border-secondary-subtle يجعله أنيقاً وخفيفاً في الوضع الداكن --}}
         <hr class="my-5 border-secondary-subtle opacity-50">
 
         {{-- 5. شريط حقوق النشر السفلي --}}
-        <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-3 small text-body-secondary">
+        {{-- تم تغيير text-body-secondary للأب ليشمل الفقرة والروابط بالأسفل --}}
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-3 small text-body">
             <p class="mb-0">© {{ date('Y') }} {{ $settings['website_name'] }}. {{ __('site.all_rights_reserved') }}</p>
             <div class="d-flex gap-4">
-                <a href="#" class="text-decoration-none text-body-secondary hover-primary-text">{{ __('messages.terms_of_service') }}</a>
-                <a href="#" class="text-decoration-none text-body-secondary hover-primary-text">{{ __('site.privacy_policy') }}</a>
+                {{-- تم التغيير إلى text-body --}}
+                <a href="#" class="text-decoration-none text-body hover-primary-text">{{ __('messages.terms_of_service') }}</a>
+                <a href="#" class="text-decoration-none text-body hover-primary-text">{{ __('site.privacy_policy') }}</a>
             </div>
         </div>
     </div>

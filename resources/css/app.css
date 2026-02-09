@@ -4,7 +4,7 @@
 /* 2. استدعاء أساسيات Tailwind */
 @tailwind base;
 @tailwind components;
-@tailwind utilities;
+/* @tailwind utilities; */
 
 /* 3. المتغيرات الذكية (CSS Variables) */
 :root {
@@ -53,7 +53,40 @@ body {
 [data-bs-theme="dark"] .card-title {
     color: #ffffff !important; /* ضمان بقاء العناوين بيضاء وواضحة */
 }
+/* تنسيق المحتوى ليتناسب مع الوضع الداكن */
+[data-bs-theme="dark"] .post-content {
+    color: #e9ecef !important; /* لون رمادي فاتح مريح للعين */
+}
 
+/* إجبار جميع العناصر الداخلية (فقرات، عناوين، روابط) على تغيير لونها */
+[data-bs-theme="dark"] .post-content *,
+[data-bs-theme="dark"] .post-content p,
+[data-bs-theme="dark"] .post-content span,
+[data-bs-theme="dark"] .post-content h1,
+[data-bs-theme="dark"] .post-content h2,
+[data-bs-theme="dark"] .post-content h3 {
+    color: inherit !important; /* تجعل العناصر ترث اللون الفاتح من الأب */
+}
+
+/* تحسين لون الروابط داخل المحتوى في الوضع الداكن */
+[data-bs-theme="dark"] .post-content a {
+    color: #339af0 !important;
+}
+/* عند تفعيل الوضع الداكن، نجعل الروابط في الفوتر بيضاء أو رمادية فاتحة جداً */
+[data-bs-theme="dark"] footer a.nav-link,
+[data-bs-theme="dark"] footer .text-body-secondary {
+    color: rgba(255, 255, 255, 0.75) !important; /* لون أبيض شفاف قليلاً مريح للعين */
+}
+
+/* عند تمرير الماوس في الوضع الداكن */
+[data-bs-theme="dark"] footer a.nav-link:hover {
+    color: #fff !important; /* أبيض ناصع عند الهوفر */
+}
+
+/* تأثير تحريك بسيط للروابط */
+.hover-link {
+    transition: all 0.3s ease;
+}
 /* تنسيق الفوتر للوضع الداكن */
 [data-bs-theme="dark"] footer {
 background-color: #2b3035 !important; /* لون رمادي داكن جداً */
