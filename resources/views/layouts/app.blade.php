@@ -19,7 +19,9 @@
     <meta property="og:description" content="@yield('meta_description', $settings['website_name'])" />
     <meta property="og:image" content="@yield('og_image', asset('assets/img/default-share.jpg'))" />
 
-
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:type" content="image/webp" />
     {{-- <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="@yield('title') | {{ config('app.name') }}">
     <meta name="twitter:description" content="@yield('meta_description', 'تدريب - تطوير - استشارات')"> --}}
