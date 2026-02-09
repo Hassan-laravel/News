@@ -47,9 +47,7 @@
             </div>
 
             <div class="d-flex align-items-center gap-3">
-                <a class="navbar-brand m-0" href="/">
-                    <img src="{{ $settings['logo'] }}" alt="logo" height="40" class="d-inline-block align-top shadow-sm rounded">
-                </a>
+
                 <span class="fw-bold fs-4 d-none d-lg-block border-end pe-3 text-body">{{ $settings['website_name'] }}</span>
             </div>
 

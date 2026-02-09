@@ -8,7 +8,7 @@
 
     {{-- التحكم بالعنوان ديناميكياً --}}
     <title>@yield('title') | {{ $settings['website_name'] }}</title>
-    {{-- <meta name="description" content="@yield('meta_description', $settings['website_name'])">
+    <meta name="description" content="@yield('meta_description', $settings['website_name'])">
     <meta name="keywords" content="@yield('meta_keywords', $settings['website_name'])">
 
 
@@ -17,7 +17,7 @@
     <meta property="og:url" content="{{ url()->current() }}" />
     <meta property="og:title" content="@yield('title') | {{ $settings['website_name'] }}" />
     <meta property="og:description" content="@yield('meta_description', $settings['website_name'])" />
-    <meta property="og:image" content="@yield('og_image', asset('assets/img/default-share.jpg'))" /> --}}
+    <meta property="og:image" content="@yield('og_image', asset('assets/img/default-share.jpg'))" />
 
 
     {{-- <meta name="twitter:card" content="summary_large_image">
